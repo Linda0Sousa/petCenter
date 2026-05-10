@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@hotwired/stimulus/dist/stimulus.umd.js"></script>
+</head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'center/style.css' %}">
+    <script src="{% static 'center/script.js' %}"></script>
+<body>
+    <div class="navbar">
+        <img src="{% static 'center/paws.png' %}" alt="PetCenter Logo" class="navbar-logo">
+        <div class="navbar-links">
+            <a href="" class="navbar-link">Home</a>
+            <a href="" class="navbar-link">Contacts</a>
+            <a href="" class="navbar-link">My Animals</a>
+            <a href="" class="navbar-link">Profile</a>
+        </div>
+    </div>
+    
+    <div class="see-pets-container flex">
+        {% for pet in pets %}
+            {% for pet_image in pet.images.all %}
+                <div class="pet-card flex">
+                    <p>{{pet_image.image.url }}</p>
+                    <img src="{{pet_image.image.url }}" alt="{{ pet.name }}">
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>

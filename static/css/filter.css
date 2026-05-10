@@ -1,0 +1,97 @@
+.filter-div{
+    font-family: var(--font-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    margin:  auto;
+}
+
+.filters-tag{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+
+.filter-topic{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: var(--background-contrast-color);
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    gap: 1.5rem;
+}
+
+.filter-type{
+    color: var(--soft-color);
+    font-size: var(--text-small);
+    margin-bottom: 5px;
+}
+
+.filter-designation {
+    flex: 1;
+}
+
+.filter-designation-inner {
+    position: relative;
+    width: 100%;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+}
+
+.custom-select {
+    position: relative;
+    font-family: inherit;
+}
+
+.custom-select-trigger {
+    background: var(--background-contrast-color);
+    cursor: pointer;
+    width: 100%;
+}
+
+.custom-options {
+    margin-top: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--background-contrast-color);
+    border-top: none;
+    z-index: 10;
+    box-shadow: 0 4px 12px -4px rgba(120, 120, 120, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease;
+}
+
+.custom-option {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.custom-option:hover{
+    background-color: var(--soft-color);
+}
+
+.custom-select.open .custom-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+

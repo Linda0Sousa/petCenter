@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@hotwired/stimulus/dist/stimulus.umd.js"></script>
+</head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'center/style.css' %}">
+    <script src="{% static 'center/script.js' %}"></script>
+<body>
+    <div class="container">
+        <div class="content" >
+            <div class="title">
+                <img src="{% static 'center/paws.png' %}" alt="PetCenter Logo" class="logo">
+                <h1 class="center-title"><span class="pet-title">Pet</span>Center</h1>
+            </div>
+            <p class="logotype">Find your best friend today!</p>
+            <div class="action" id="landing-page">
+                <a class="btn" id="signup-btn">Sign Up</a>
+                <p class="or">or</p>
+                <a href="{% url 'login'%}" class="login">Log In</a>
+            </div>
+
+               <form action="{% url 'index' %}" method="post" class="form" id="signup-form" style="display: none;">
+                    <div class="form-fields">
+                        <p>Sign Up</p>
+                        {% csrf_token %}
+                        <input type="text" name="{{ SignUpForm.username.name }}" placeholder="Username" class="form-control">
+                        <input type="email" name="{{ SignUpForm.email.name }}" placeholder="Email" class="form-control">
+                        <input type="password" name="{{ SignUpForm.password.name }}" placeholder="Password" class="form-control">
+                        <input type="text" name="{{ SignUpForm.phone_number.name }}" placeholder="Phone Number" class="form-control">
+                    </div>
+                        
+                        <button type="submit" class="adopt-btn">Continue</button>
+                        <p class="or">or</p>
+                        <a href="{% url 'login' %}" class="login">Log In</a>
+                </form> 
+</body>
+</html>

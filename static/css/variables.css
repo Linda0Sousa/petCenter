@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+:root {
+    --primary-color: #b47037;
+    --secondary-color: #000000;
+    --background-contrast-color: white;
+    --soft-color: #a8a8a8;
+    --danger-color: #E74C3C;
+
+    --font-main:  "Comic Neue", cursive;
+    --font-secondary: "Inter", sans-serif;
+
+    --font-bold: 900;
+    --font-semi-bold: 700;
+    --font-regular: 400;
+
+    --text-small: 14px;
+    --text-medium: 16px;
+    --text-large: 24px;
+
+    --radius: 1rem;
+
+    --body-color: #f7f7f7;
+}

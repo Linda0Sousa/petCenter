@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@hotwired/stimulus/dist/stimulus.umd.js"></script>
+</head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'center/style.css' %}">
+    <script src="{% static 'center/script.js' %}"></script>
+<body>
+    <div class="navbar">
+        <img src="{% static 'center/paws.png' %}" alt="PetCenter Logo" class="navbar-logo">
+        <div class="navbar-links">
+            <a href="" class="navbar-link">Home</a>
+            <a href="" class="navbar-link">Contacts</a>
+            <a href="" class="navbar-link">My Animals</a>
+            <a href="" class="navbar-link">Profile</a>
+        </div>
+    </div>
+    <div class="pet-form">
+        <form method="post" enctype="multipart/form-data">
+            <div class="container-pet-form flex">
+                <div class="main-img" id="upload-area">
+                     <label for="profile-image" class="upload-label" id="select-image">
+                        Select image
+                    </label>
+                    <input type="file" name="main_image" accept="image/*" required id="profile-image" hidden> 
+                </div>
+                
+                {% csrf_token %}
+
+                <div class="block">
+                    {{ form.name }}
+                    {{ form.age }}
+                    {{ form.breed }}
+                    {{ form.status }}
+                </div>
+                <div class="description">
+                    {{ form.description }}
+                </div>
+                <button type="submit" class="btn">Save</button>
+            </div>
+
+            <div class="flex photos-container">
+                <div class="photos" id="photos-div-1">
+                     <label for="profile-image" class="upload-label" id="select-image-1">
+                        Select image
+                    </label>
+                    <input type="file" name="images" accept="image/*" id="profile-image-1" hidden> 
+                </div>
+                <div class="photos" id="photos-div-2">
+                     <label for="profile-image" class="upload-label" id="select-image-2">
+                        Select image
+                    </label>
+                    <input type="file" name="images" accept="image/*" id="profile-image-2" hidden> 
+                </div>
+                <div class="photos" id="photos-div-3">
+                     <label for="profile-image" class="upload-label" id="select-image-3">
+                        Select image
+                    </label>
+                    <input type="file" name="images" accept="image/*" id="profile-image-3" hidden> 
+                </div>
+                <div class="photos" id="photos-div-4">
+                     <label for="profile-image" class="upload-label" id="select-image-4">
+                        Select image
+                    </label>
+                    <input type="file" name="images" accept="image/*" id="profile-image-4" hidden> 
+                </div>
+                <div class="photos" id="photos-div-5">
+                     <label for="profile-image" class="upload-label" id="select-image-5">
+                        Select image
+                    </label>
+                    <input type="file" name="images" accept="image/*" id="profile-image-5" hidden> 
+                </div>
+                <div class="photos" id="photos-div-6">
+                     <label for="profile-image" class="upload-label" id="select-image-6">
+                        Select image
+                    </label>
+                    <input type="file" name="images" accept="image/*" id="profile-image-6" hidden> 
+                </div>
+            </div>
+        </form>  
+    </div>
+</body>
+</html>

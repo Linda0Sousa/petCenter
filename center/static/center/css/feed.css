@@ -1,0 +1,7 @@
+body {
+    background-color: var(--body-color);
+}
+
+.feed{
+    padding: 5rem;
+}

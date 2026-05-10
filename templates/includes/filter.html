@@ -1,0 +1,64 @@
+{% load static %}
+
+<div class="filter-div">
+    <div class="filters-tag">
+        <div class="filter-topic">
+            <img src="{% static 'center/paws.png' %}" alt="breed-icon" class="icon">
+            <div class="filter-designation">
+                <p class="filter-type">Breed</p>
+                <div class="custom-select">
+                    <div class="custom-select-trigger">
+                        All Breeds
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option">Dogs</div>
+                        <div class="custom-option">Cats</div>
+                        <div class="custom-option">Birds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filter-topic">
+            <img src="{% static 'center/calendar.svg' %}" alt="calendar-icon" class="icon">
+            <div class="filter-designation">
+                <p class="filter-type">Age</p>
+                <div class="custom-select">
+                    <div class="custom-select-trigger">
+                        All Ages
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option">1 month</div>
+                        <div class="custom-option">2 years</div>
+                        <div class="custom-option">3 months</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filter-topic">
+            <img src="{% static 'center/gender.svg' %}" alt="calendar-icon" class="icon">
+            <div class="filter-designation">
+                <p class="filter-type">Gender</p>
+                <div class="custom-select">
+                    <div class="custom-select-trigger">
+                        Any
+                    </div>
+                    <div class="custom-options">
+                        <div class="custom-option">Male</div>
+                        <div class="custom-option">Female</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="filter-topic">
+            <img src="{% static 'center/heart.svg' %}" alt="calendar-icon" class="icon">
+            <div class="filter-designation">
+                <p class="filter-type">Favorited</p>
+                <div class="custom-select">
+                    <div class="custom-select-trigger">
+                        Your Favorites
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCenter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@hotwired/stimulus/dist/stimulus.umd.js"></script>
+</head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'center/style.css' %}">
+    <script src="{% static 'center/script.js' %}"></script>
+<body>
+    <div class="container">
+        <div class="content" >
+            <div class="title">
+                <img src="{% static 'center/paws.png' %}" alt="PetCenter Logo" class="logo">
+                <h1 class="center-title"><span class="pet-title">Pet</span>Center</h1>
+            </div>
+            <p class="logotype">Find your best friend today!</p>
+            <form class="form" id="login-form" style="display: none;">
+                <p>Login</p>
+                <div class="form-fields">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <a href="" class="adopt-btn">Adopt</a>
+                    <p class="or">or</p>
+                    <a href="" class="signUp">Sign Up</a>
+                </div>
+            </form>
+            <div> 
+</body>
+</html>

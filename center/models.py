@@ -1,0 +1,80 @@
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+from django.core.exceptions import ValidationError
+import phonenumbers
+from phonenumbers import format_number, PhoneNumberFormat
+
+class User(AbstractUser):
+    phone_number = models.CharField(max_length=20, unique=True)
+    email = models.EmailField(unique=True)
+    is_active = models.BooleanField(default=False)
+
+    def clean(self):
+        #for simplicity,  I only verify if the number has a code country and if it has 9 numbers
+        super().clean()
+
+        if not self.phone_number:
+            return
+        try:
+            number = phonenumbers.parse(self.phone_number, "PT")
+        except phonenumbers.NumberParseException:
+            raise ValidationError({"phone_number": "Número inválido"})
+
+        if not phonenumbers.is_valid_number(number):
+            raise ValidationError({"phone_number": "Número inválido"})
+
+        self.phone_number = format_number(number, PhoneNumberFormat.E164)
+
+class EmailVerification(models.Model):
+    email = models.EmailField()
+    code = models.CharField(max_length=6)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+
+class Status(models.Model):
+    class StatusChoices(models.TextChoices):
+        DEAD = 'dead', 'Dead'
+        UNAVAILABLE = 'unavailable', 'Unavailable'
+        AVAILABLE = 'available', 'Available'
+        ADOPTED = 'adopted', 'Adopted'
+
+    status = models.CharField(
+        choices=StatusChoices.choices,
+        default=StatusChoices.UNAVAILABLE,
+        null=False,
+    )
+
+class Pet(models.Model):
+    class StatusChoices(models.TextChoices):
+        DEAD = 'dead', 'Dead'
+        UNAVAILABLE = 'unavailable', 'Unavailable'
+        AVAILABLE = 'available', 'Available'
+        ADOPTED = 'adopted', 'Adopted'
+
+    name = models.CharField(max_length=50)
+    age = models.IntegerField()
+    breed = models.CharField(max_length=50)
+    description = models.TextField(max_length=200)
+    status = models.CharField(
+        max_length=20,
+        choices=StatusChoices.choices,
+        default=StatusChoices.UNAVAILABLE
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+class PetImage(models.Model):
+    pet = models.ForeignKey(Pet, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='pets/')
+
+    def clean(self):
+        if self.pk is None:
+            if self.pet_id and self.pet.images.count() >= 6:
+                raise ValidationError("You can only have 6 images.")
+
+class AdoptionRequest(models.Model):
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=[('pending', 'Pending'), ('approved', 'Approved'), ('rejected', 'Rejected')], default='pending')
+    reason = models.TextField(blank=True, null=True, max_length=200)
+    canceled_by_user = models.BooleanField(default=True)
