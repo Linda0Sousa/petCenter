@@ -95,3 +95,26 @@
     pointer-events: auto;
 }
 
+
+/*search bar*/
+.search-div{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.search-icon{
+    margin-right: -3rem;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+}
+
+.search-input{
+    width: 30%;
+    padding: 1rem 1rem 1rem 4rem;
+    border: none;
+    border-radius: var(--big-radius);
+    background-color: var(--background-contrast-color);
+}
