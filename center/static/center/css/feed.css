@@ -5,3 +5,61 @@ body {
 .feed{
     padding: 5rem;
 }
+
+.animals-photos{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.photo-container{
+    background-color: blueviolet;
+    width: 300px;
+    height: 400px;
+    border-radius: 1rem 1rem 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.photo-container-info{
+    background-color: var(--background-contrast-color);
+    width: 300px;
+    height: 200px;
+    border-radius: 0 0 1rem 1rem;
+    padding: 2rem;
+}
+
+.view-more-container{
+   text-align: center;
+}
+
+.view-more{
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius);
+    padding: 0.5rem 4rem;
+}
+
+.name{
+    font-weight: var(--font-bold);
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.breed-age{
+    margin: 1.5rem 0rem;
+}
+
+.icon-container{
+    margin: 1rem 1rem 0 auto;
+}
+
+.like-icon{
+    background-color: color-mix(in srgb, var(--background-contrast-color) 50%, transparent);
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
