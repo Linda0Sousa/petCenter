@@ -31,7 +31,7 @@ class SignUp(forms.ModelForm):
 class CreatePet(forms.ModelForm):
     class Meta:
         model = Pet
-        fields = ["status", "name", "age", "breed", "description"]
+        fields = ["status", "name", "age", "breed", "description", "gender"]
 
 
     def __init__(self, *args, **kwargs):

@@ -60,6 +60,10 @@ class Pet(models.Model):
         choices=StatusChoices.choices,
         default=StatusChoices.UNAVAILABLE
     )
+    gender = models.CharField(max_length=10, choices=[
+        ('male', 'Male'),
+        ('female', 'Female')
+    ])
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
 class PetImage(models.Model):
@@ -68,8 +72,8 @@ class PetImage(models.Model):
 
     def clean(self):
         if self.pk is None:
-            if self.pet_id and self.pet.images.count() >= 6:
-                raise ValidationError("You can only have 6 images.")
+            if self.pet_id and self.pet.images.count() >= 4:
+                raise ValidationError("You can only have 4 images.")
 
 class AdoptionRequest(models.Model):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE)

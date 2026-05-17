@@ -1,0 +1,151 @@
+body{
+    background-color: var(--body-color);
+}
+
+.main-img{
+    border: 2px dashed #ccc;
+    width: 40%;
+    color: #6e6e6e;
+    text-align: center;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border-radius: var(--radius);
+}
+
+.create-pet-container{
+    width: 65%;
+    margin: auto;
+}
+
+.top-elements{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto 0;
+}
+
+.pet-form{
+    margin-top: 4rem;
+}
+
+.container-pet-form{
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-items: center;
+    align-items: stretch;
+}
+
+.pet-label{
+    color: var(--primary-color);
+    font-size: var(--text-small);
+    margin-bottom: 1rem;
+}
+
+.container-fields{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.container-field:nth-child(1),
+.container-field:nth-child(2) {
+    grid-column: span 3;
+}
+
+.container-field:nth-child(3),
+.container-field:nth-child(4),
+.container-field:nth-child(5) {
+    grid-column: span 2;
+}
+
+
+.container-field input{
+    width: 100%;
+    border-radius: var(--big-radius);
+    display: block;
+    padding: 0.7rem 1rem;
+    border: none;
+    margin-top: 0.7rem;
+}
+
+.container-field select{
+    margin-top: 0.7rem;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: #ffffff 1px solid;
+    display: block;
+    background-color: var(--background-contrast-color);
+    border-radius: var(--big-radius)
+}
+
+.description textarea{
+    margin-top: 0.7rem;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem;
+    display: block;
+    background-color: var(--background-contrast-color);
+    border-radius: var(--radius);
+}
+
+.description {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.photos{
+    border: 2px dashed #ccc;
+    width: 100%;
+    height: 17rem;
+    color: #6e6e6e;
+    text-align: center;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border-radius: var(--radius);
+}
+
+.photos-container{
+    gap: 2rem;
+    margin-top: 6rem;
+    display: flex;
+    text-align: center;
+    margin: auto;
+}
+
+.photos-container input{
+    
+    margin-bottom: 1rem;
+}
+
+#profile-image{
+    margin-bottom: 2rem;
+}
+
+.back{
+    color: var(--primary-color);
+    font-size: var(--text-large);
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+}
+
+.btn{
+    background-color: var(--primary-color);
+    color: var(--background-contrast-color);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    width: 10%;
+    border-radius: var(--radius);
+    font-size: var(--text-medium);
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+}
+
+.gallery{
+    font-size: var(--text-large);
+    font-weight: var(--font-bold);
+    margin: 4rem 0;
+}

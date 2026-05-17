@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetCenter</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@hotwired/stimulus/dist/stimulus.umd.js"></script>
-</head>
+{% extends 'base.html' %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'center/style.css' %}">
-    <script src="{% static 'center/script.js' %}"></script>
-<body>
-    <div class="navbar">
-        <img src="{% static 'center/paws.png' %}" alt="PetCenter Logo" class="navbar-logo">
-        <div class="navbar-links">
-            <a href="" class="navbar-link">Home</a>
-            <a href="" class="navbar-link">Contacts</a>
-            <a href="" class="navbar-link">My Animals</a>
-            <a href="" class="navbar-link">Profile</a>
+
+    {% block title %}
+    Feed
+    {% endblock %}
+        
+    {% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'center/css/create_pet.css' %}">
+    {% endblock %}
+    {% block content %}
+
+    
+    <div class="create-pet-container">
+        <div class="top-elements">
+            <p class="back"> < Back to profile</p>
+            <button type="submit" class="btn">Save</button>
         </div>
-    </div>
-    <div class="pet-form">
+        <div class="pet-form">
         <form method="post" enctype="multipart/form-data">
-            <div class="container-pet-form flex">
+            <div class="container-pet-form">
                 <div class="main-img" id="upload-area">
                      <label for="profile-image" class="upload-label" id="select-image">
                         Select image
@@ -37,19 +28,42 @@
                 
                 {% csrf_token %}
 
-                <div class="block">
-                    {{ form.name }}
-                    {{ form.age }}
-                    {{ form.breed }}
-                    {{ form.status }}
+                <div class="container-fields">
+                   
+                        <div class="container-field">
+                            <label for="pet_name" class="pet-label">Pet Name</label>
+                            <div class="form-control">{{ form.name }}</div>
+                        </div>
+                        <div class="container-field">
+                            <label for="pet_status" class="pet-label">Status</label>
+                            <div class="form-control">{{ form.status }}</div>
+                        </div>
+
+                        <div class="container-field">
+                            <label for="pet_age " class="pet-label">Age</label>
+                            <div class="form-control">{{ form.age }}</div>
+                        </div>
+                        <div class="container-field">
+                            <label for="pet_breed" class="pet-label">Breed</label>
+                            <div class="form-control">{{ form.breed }}</div>
+                        </div>
+                   
+                    
+                        <div class="container-field">
+                            <label for="pet_gender" class="pet-label">Gender</label>
+                            <div class="form-control">{{ form.gender }}</div>
+                        </div>
+                        
+                        <div class="description">
+                            <label for="pet_description" class="pet-label">Description</label>
+                            <div class="form-control">{{ form.description }}</div>
+                        </div>
                 </div>
-                <div class="description">
-                    {{ form.description }}
-                </div>
-                <button type="submit" class="btn">Save</button>
             </div>
 
-            <div class="flex photos-container">
+            <p class="gallery">Gallery</p>
+
+            <div class="photos-container">
                 <div class="photos" id="photos-div-1">
                      <label for="profile-image" class="upload-label" id="select-image-1">
                         Select image
@@ -74,7 +88,7 @@
                     </label>
                     <input type="file" name="images" accept="image/*" id="profile-image-4" hidden> 
                 </div>
-                <div class="photos" id="photos-div-5">
+                <!-- <div class="photos" id="photos-div-5">
                      <label for="profile-image" class="upload-label" id="select-image-5">
                         Select image
                     </label>
@@ -86,8 +100,15 @@
                     </label>
                     <input type="file" name="images" accept="image/*" id="profile-image-6" hidden> 
                 </div>
+                -->
             </div>
         </form>  
+        </div>
     </div>
-</body>
-</html>
+
+    {% endblock %}  
+
+
+    {% block extra_js %}
+        <script src="{% static 'center/scripts/createPet.js' %}"></script>
+    {% endblock %}
