@@ -12,12 +12,12 @@
 
     
     <div class="create-pet-container">
+        <form method="post" enctype="multipart/form-data">
         <div class="top-elements">
             <p class="back"> < Back to profile</p>
             <button type="submit" class="btn">Save</button>
         </div>
         <div class="pet-form">
-        <form method="post" enctype="multipart/form-data">
             <div class="container-pet-form">
                 <div class="main-img" id="upload-area">
                      <label for="profile-image" class="upload-label" id="select-image">
@@ -29,6 +29,8 @@
                 {% csrf_token %}
 
                 <div class="container-fields">
+
+                    {{ form.errors }}
                    
                         <div class="container-field">
                             <label for="pet_name" class="pet-label">Pet Name</label>

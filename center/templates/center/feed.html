@@ -14,50 +14,32 @@
         <div class="feed">
             {% include 'includes/filter.html' %}
 
-            
             <div class="animals-photos">
-                <div class="animal-card">
-                    <div class="photo-container">
-                        <div class="icon-container">
-                            <img src="{% static 'center/like.svg' %}" alt="like" class="like-icon">
-                        </div>
-                    </div>
-                    <div class="photo-container-info">
-                        <p class="name">Alfredo</p>
-                        <p class="breed-age">Rotweiller - 2 months old</p>
-                        <div class="view-more-container">
-                            <a href="#" class="view-more">View More</a>
-                        </div>
-                    </div>
-                </div>
+                {% for animal in animals %}
+                    <div class="animal-card">
 
-                <div class="animal-card">
-                    <div class="photo-container">
-                        <div class="icon-container">
-                            <img src="{% static 'center/like.svg' %}" alt="like" class="like-icon">
+                        <div class="photo-container">
+                            
+                            {% if animal.main_image %}
+                                <img src="{{ animal.main_image.image.url }}" alt="{{ animal.name }}" class="pet-image">
+                            {% endif %}
+
+                            <div class="icon-container">
+                                <img src="{% static 'center/like.svg' %}" alt="like" class="like-icon">
+                            </div>
                         </div>
-                    </div>
-                    <div class="photo-container-info">
-                        <p class="name">Alfredo</p>
-                        <p class="breed-age">Rotweiller - 2 months old</p>
-                        <a href="#" class="view-more">View More</a>
-                    </div>
-                </div>
 
+                        <div class="photo-container-info">
+                            <p class="name">{{ animal.name }}</p>
+                            <p class="breed-age">{{ animal.breed }} - {{ animal.age }} months old</p>
 
-                <div class="animal-card">
-                    <div class="photo-container">
-                        <div class="icon-container">
-                            <img src="{% static 'center/like.svg' %}" alt="like" class="like-icon">
+                            <div class="view-more-container">
+                                <a href="#" class="view-more">View More</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="photo-container-info">
-                        <p class="name">Alfredo</p>
-                        <p class="breed-age">Rotweiller - 2 months old</p>
-                        <a href="#" class="view-more">View More</a>
-                    </div>
-                </div>
 
+                    </div>
+                {% endfor %}
             </div>
         </div>
     {% endblock %}

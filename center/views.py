@@ -111,9 +111,14 @@ def login(request):
 
     return render(request, "center/login.html")
 
-#clients feed
+#all animals listed in the feed
 def feed(request):
-    return render(request, "center/feed.html")
+    animals = Pet.objects.all()
+
+    for animal in animals:
+        animal.main_image = PetImage.objects.filter(pet=animal).first()
+
+    return render(request, "center/feed.html", {"animals": animals})
 
 #create a pet
 #@permission_required('center.add_pet', raise_exception=True)
