@@ -17,10 +17,9 @@ body {
     position: relative;
     overflow: hidden;
     border-radius: 1rem 1rem 0 0;
-
-    display: flex;
     justify-content: flex-end;
     align-items: flex-start;
+    width: 300px;
 }
 
 .photo-container .pet-image {
@@ -60,10 +59,14 @@ body {
 }
 
 .icon-container{
-    margin: 1rem 1rem 0 auto;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    margin: 1rem;
 }
 
 .like-icon{
+    z-index: 1;
     background-color: color-mix(in srgb, var(--background-contrast-color) 50%, transparent);
     width: 40px;
     height: 40px;

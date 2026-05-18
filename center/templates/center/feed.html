@@ -14,19 +14,23 @@
         <div class="feed">
             {% include 'includes/filter.html' %}
 
+             {% if animals|length > 0 %}
+                
+
             <div class="animals-photos">
                 {% for animal in animals %}
                     <div class="animal-card">
 
                         <div class="photo-container">
-                            
-                            {% if animal.main_image %}
-                                <img src="{{ animal.main_image.image.url }}" alt="{{ animal.name }}" class="pet-image">
-                            {% endif %}
+
 
                             <div class="icon-container">
                                 <img src="{% static 'center/like.svg' %}" alt="like" class="like-icon">
                             </div>
+                            
+                            {% if animal.main_image %}
+                                <img src="{{ animal.main_image.image.url }}" alt="{{ animal.name }}" class="pet-image">
+                            {% endif %}
                         </div>
 
                         <div class="photo-container-info">
@@ -41,6 +45,9 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
+
+            
         </div>
     {% endblock %}
 
