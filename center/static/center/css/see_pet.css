@@ -21,6 +21,7 @@ body{
     border-radius: var(--radius);
     height: 500px;
     position: relative;
+    box-shadow: var(--shadow-soft);
 }
 
 .image-container{
@@ -111,6 +112,7 @@ body{
     height: 300px;
     object-fit: cover;
     border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
 }
 
 .more-photos-title{

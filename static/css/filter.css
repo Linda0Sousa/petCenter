@@ -117,4 +117,5 @@
     border: none;
     border-radius: var(--big-radius);
     background-color: var(--background-contrast-color);
+    box-shadow: var(--shadow-soft);
 }

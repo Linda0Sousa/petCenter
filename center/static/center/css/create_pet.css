@@ -1,5 +1,6 @@
 body{
     background-color: var(--body-color);
+    font-family: var(--font-secondary);
 }
 
 .main-img{
@@ -12,11 +13,13 @@ body{
     align-items: center;    
     justify-content: center;
     border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
 }
 
 .create-pet-container{
     width: 65%;
     margin: auto;
+    padding-bottom: 5rem;
 }
 
 .top-elements{
@@ -108,6 +111,7 @@ body{
     justify-content: center;
     border-radius: var(--radius);
     background-color: var(--background-contrast-color);
+    box-shadow: var(--shadow-soft);
 }
 
 .photos-container{
@@ -150,4 +154,8 @@ body{
     font-size: var(--text-large);
     font-weight: var(--font-bold);
     margin: 4rem 0;
+}
+
+.form-control input select textarea{
+    box-shadow: var(--shadow-soft);
 }

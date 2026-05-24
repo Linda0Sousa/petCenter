@@ -1,9 +1,16 @@
 body {
     background-color: var(--body-color);
+    font-family: var(--font-secondary);
 }
 
 .feed{
     padding: 5rem;
+}
+
+.animal-card{
+    box-shadow: var(--shadow-soft);
+    border-radius: var(--radius);
+    width: min-content;
 }
 
 .animals-photos{

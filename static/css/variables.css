@@ -22,4 +22,6 @@
     --big-radius: 10rem;
 
     --body-color: #f7f7f7;
+
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
