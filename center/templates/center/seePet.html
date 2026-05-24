@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+    {% load static %}
+
+    {% block title %}
+    Feed
+    {% endblock %}
+        
+    {% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'center/css/see_pet.css' %}">
+    {% endblock %}
+
+
+    {% block content %}
+    <div class="container">
+        <p class="back"> < Back to all animals</p>
+        <div class="container-animal-info">
+            <div class="image-container">
+                <img src="{{ pet_images.0.image.url }}" alt="{{ pet.name }}" class="pet-image">
+            </div>
+            <div class="info-container">
+                <div class="name">{{ pet.name }}</div>
+                <div class="tags">
+                    <div class="age"><img src="{% static 'center/calendar.svg' %}" alt="calendar" class="calendar-icon"> {{ pet.age }} years</div>
+                    <div class="breed"><img src="{% static 'center/paws.png' %}" alt="breed" class="breed-icon">{{ pet.breed }}</div>
+                    <div class="gender"><img src="{% static 'center/gender.svg' %}" alt="gender" class="gender-icon">{{ pet.gender }}</div>
+                </div>
+                <div class="description">{{ pet.description }}</div>
+                <button class="adopt button"> Adopt {{ pet.name }}</button>
+            </div>
+            <div class="like-container">
+                <img src="{% static 'center/like.svg' %}" alt="Like" class="like-icon">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p class="more-photos-title">More Photos</p>
+        <div class="more-photos-container">
+            {% for pet_image in pet_images|slice:"1:" %}
+                <img src="{{ pet_image.image.url }}" alt="{{ pet.name }}" class="more-photos">
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+    {% block extra_js %}
+        
+    {% endblock %}

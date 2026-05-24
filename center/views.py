@@ -155,11 +155,13 @@ def create_pet(request):
         "form": Form,
     })
 
-#see pets
-def see_pets(request):
-    pets = Pet.objects.all()
-    return render(request, "center/seePets.html", {
-        "pets": pets
+#see pet
+def see_pet(request, pet_id):
+    pet = Pet.objects.get(id=pet_id)
+    pet_images = PetImage.objects.filter(pet=pet)
+    return render(request, "center/seePet.html", {
+        "pet": pet,
+        "pet_images": pet_images,
     })
 
 #profile for clients

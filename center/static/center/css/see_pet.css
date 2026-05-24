@@ -1,0 +1,120 @@
+.back{
+    color: var(--primary-color);
+    font-size: var(--text-large);
+    
+    cursor: pointer;
+    margin-bottom: 5rem
+}
+
+body{
+    font-family: var(--font-secondary);
+    background-color: var(--body-color);
+}
+
+.container{
+    padding: 5rem;
+}
+
+.container-animal-info{
+    display: flex;
+    background-color: var(--background-contrast-color);
+    border-radius: var(--radius);
+    height: 500px;
+    position: relative;
+}
+
+.image-container{
+    width: 600px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.pet-image{
+    object-fit: cover;
+    width: 400px;
+    height: 500px;
+}
+
+.info-container{
+    padding: 3.5rem 5rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.name{
+    font-weight: var(--font-bold);
+    font-size: var(--text-xx-large);
+    margin-bottom: 1.5rem;
+}
+
+.tags{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.tags div{
+    background-color: #ffe6d1;
+    border-radius: var(--radius);
+    padding: 0.5rem 1.5rem;
+    color: var(--primary-color);
+    font-weight: var(--font-bold);
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.tags div img{
+    width: 19px;
+    height: 19px;
+}
+
+.description{
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+}
+
+.like-container{
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+}
+
+.like-icon{
+    width: 25px;
+    height: 25px;
+    filter: invert(1) sepia(1) saturate(10000%) hue-rotate(180deg);
+    cursor: pointer;
+}
+
+.button{
+    margin-top: auto;
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: var(--background-contrast-color);
+    font-size: var(--text-large);
+    padding: 1rem 4rem;
+    border-radius: var(--big-radius);
+}
+
+.more-photos-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.more-photos{
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.more-photos-title{
+    font-weight: var(--font-bold);
+    font-size: var(--text-large);
+    margin-bottom: 2rem;
+}
