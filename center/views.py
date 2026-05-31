@@ -164,7 +164,9 @@ def see_pet(request, pet_id):
         "pet_images": pet_images,
     })
 
-#profile for clients
+#dashboard
+def dashboard(request):
+    return render(request, "center/dashboard.html")
 
 #profile for petCenters
 

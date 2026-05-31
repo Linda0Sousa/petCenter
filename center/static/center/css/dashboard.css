@@ -1,0 +1,131 @@
+body{
+    background-color: var(--body-color);
+    font-family: var(--font-secondary);
+}
+
+.container{
+    padding: 5rem;
+}
+
+.residents-status-container{
+    background-color: var(--background-contrast-color);
+    border-radius: var(--radius);
+    padding: 3rem;
+}
+
+.residents-status{
+    font-size: var(--text-large);
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.information-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.information{
+    display: flex;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    align-items: center;
+    font-weight: var(--font-bold);
+    width: 100%;
+}
+
+.circle{
+   padding: 0.4rem;
+   background-color: currentColor;
+   border-radius: var(--big-radius);
+   margin-right: 1rem;
+}
+
+.information-text{
+    text-align: right;
+    margin-right: auto;
+}
+
+.available{
+    background-color: #e6ffed;
+    color: #203d28;
+}
+
+.unavailable{
+    background-color: #ffe6e6;
+    color: #7a1919;
+}
+
+.adopted{
+    background-color: #e7e6ff;
+    color: #19277a;
+}
+
+.deceased{
+    background-color: #e6e6e6;
+    color: #191919;
+}
+
+.users-container{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.user-card{
+    background-color: var(--background-contrast-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    width: 290px;
+    height: 290px;
+    font-weight: var(--font-bold);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.icon{
+    margin-left: auto;
+    width: 30px;
+}
+
+.icon img{
+    width: 30px;
+    height: max-content;
+}
+
+.user-card .number{
+    margin-top: auto;
+}
+
+.number{
+    font-size: var(--text-xx-large);
+}
+
+.sea-all{
+    color: var(--primary-color);
+}
+
+.sea-all .user-card-text{
+    margin-top: auto;
+    font-size: var(--text-large);
+}
+
+.canceled-requests{
+    color: #521625;
+}
+
+.active-users{
+    color: #152442;
+}
+
+.pending-requests{
+    color: #11722b;
+}
+
+.blocked-people{
+    color: #7a1919;
+}

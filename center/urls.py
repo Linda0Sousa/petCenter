@@ -9,4 +9,5 @@ urlpatterns = [
     path("feed/", views.feed, name="feed"),
     path("create_pet/", views.create_pet, name="create_pet"),
     path("see_pet/<int:pet_id>/", views.see_pet, name="see_pet"),
+    path("dashboard/", views.dashboard, name="dashboard"),
 ]

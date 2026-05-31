@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+    {% load static %}
+
+    {% block title %}
+        Dashboard
+    {% endblock %}
+        
+    {% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'center/css/dashboard.css' %}">
+    {% endblock %}
+
+
+    {% block content %}
+    <div class="container">
+
+        <div class="residents-status-container">
+            <p class="residents-status">Residents Status</p>
+            <div class="information-container">
+                <div class="information available">
+                    <div class="circle"></div>
+                    <p class="information-text">Available</p>
+                    <p class="information-number">15</p>
+                </div>
+                <div class="information adopted">
+                    <div class="circle"></div>
+                    <p class="information-text">Adopted</p>
+                    <p class="information-number">15</p>
+                </div>
+                <div class="information unavailable">
+                    <div class="circle"></div>
+                    <p class="information-text">Unavailable</p>
+                    <p class="information-number">15</p>
+                </div>
+                <div class="information deceased">
+                    <div class="circle"></div>
+                    <p class="information-text">Deceased</p>
+                    <p class="information-number">15</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="users-container">
+           <div class="user-card sea-all">
+                <div class="icon"><img src="{% static 'center/seeAll.svg' %}" alt="see all"></div>
+                <p class="user-card-text">See all</p>
+           </div>
+           <div class="user-card canceled-requests">
+                <div class="icon"><img src="{% static 'center/pending.svg' %}" alt="see all"></div>
+                <p class="number">15</p>
+                <p class="user-card-text">Canceled requests</p>
+           </div>
+            <div class="user-card active-users">
+                <div class="icon"><img src="{% static 'center/house.svg' %}" alt="see all"></div>
+                <p class="number">15</p>
+                <p class="user-card-text">Active Users</p>
+            </div>
+            <div class="user-card pending-requests">
+                <div class="icon"><img src="{% static 'center/user.svg' %}" alt="see all"></div>
+                <p class="number">15</p>
+                <p class="user-card-text">Pending Requests</p>
+            </div>
+            <div class="user-card blocked-people">
+                <div class="icon"><img src="{% static 'center/blocked.svg' %}" alt="see all"></div>
+                <p class="number">15</p>
+                <p class="user-card-text">Blocked People</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block extra_js %}
+        
+    {% endblock %}
