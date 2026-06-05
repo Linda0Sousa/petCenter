@@ -1,0 +1,121 @@
+body{
+    background-color: var(--body-color);
+    font-family: var(--font-secondary);
+}
+
+.container{
+    padding: 5rem;
+}
+
+.client-container{
+    background-color: var(--background-contrast-color);
+    border-radius: var(--radius);
+    width: 100%;
+    padding: 3rem;
+}
+
+.client-container .name{
+    font-size: var(--text-xx-large);
+    font-weight: var(--font-bold);
+}
+
+.client-top{
+    display: flex;
+    align-items: center;
+}
+
+.edit{
+    margin-left: 2rem;
+    width: 25px;
+    height: 25px;
+}
+
+.logout{
+    margin-left: auto;
+    color: #7a1919FF;
+    justify-self: end;
+    margin-top: -3rem;
+}
+
+.information{
+    margin-top: 2rem;
+    display:flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.client-info{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.adoption-history{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    font-size: var(--text-xx-large);
+    font-weight: var(--font-bold);
+}
+
+.count{
+    font-size: var(--text-medium);
+    font-weight: var(--font-semi-bold);
+}
+
+
+.adoption-history-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.adoption-history-card{
+    display: flex;
+    width: 100%;
+    position: relative;
+    background-color: var(--background-contrast-color);
+    border-radius: var(--radius);
+}
+
+.image-div{
+    border-radius: var(--radius);
+    border-bottom-right-radius: 0;
+    background-color: var(--soft-color);
+    width: 30%;
+    height: 100%;
+}
+
+.history-information{
+    width: 70%;
+    padding: 2rem;
+}
+
+.situation{
+    font-size: var(--text-small);
+    color: var(--primary-color);
+    justify-self: end;
+    font-weight: var(--font-semi-bold);
+}
+
+.history-information .name{
+    font-size: var(--text-large);
+    font-weight: var(--font-bold);
+}
+
+.history-information > *:not(.situation) {
+    margin-bottom: 1rem;
+}
+
+.view-more{
+    display: block;
+    margin: 3rem auto;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: var(--big-radius);
+    padding: 1rem;
+    width: 50%;
+}
+
+.extra-info{
+    margin-top: 2rem;
+}
