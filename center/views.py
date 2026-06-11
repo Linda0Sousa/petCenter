@@ -172,6 +172,8 @@ def dashboard(request):
 def profile(request):
     return render(request, "center/profile.html")
 
-#profile for clients
+#list of requests for the shelter
+def requests(request):
+    return render(request, "center/requests.html")
 
 

@@ -1,0 +1,56 @@
+        {% extends 'base.html' %}
+        {% load static %}
+
+        {% block title %}
+        Requests
+        {% endblock %}
+
+        {% block extra_css %}
+            <link rel="stylesheet" type="text/css" href="{% static 'center/css/requests.css' %}">
+        {% endblock %}
+
+        {% block content %}
+        
+        <div class="requests">
+            {% include 'includes/filter.html' %}
+
+             <div class="table">
+                <div class="header-container">
+                    <p class="header">Pet Details</p>
+                    <p class="header">Client</p>
+                    <p class="header">Submission Date</p>
+                    <p class="header">Status</p>
+                    <p class="header">Actions</p>
+                </div>
+                <div class="body-container">
+                    <div class="animal-details">
+                        <div class="image"></div>
+                        <div class="information">
+                            <p class="name">Dog Name</p>
+                            <p class="type">Dog Type - 2 years</p>
+                        </div>
+                    </div>
+                    <div class="client">
+                        <p class="name">Your name</p>
+                        <p class="contact">916 786 123</p>
+                    </div>
+                    <div class="sub">
+                        <p class="date">16/08/2023</p>
+                    </div>
+                    <div class="status">
+                        <p class="status">Pending</p>
+                    </div>
+                    <div class="action">
+                        <p class="accept">Accept</p>
+                        <p class="more">More</p>
+                    </div>
+                </div>
+             </div>
+
+            
+        </div>
+    {% endblock %}
+
+    {% block extra_js %}
+    <script src="{% static 'center/scripts/filters.js' %}"></script>
+    {% endblock %}

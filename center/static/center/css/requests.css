@@ -1,0 +1,73 @@
+body {
+    background-color: var(--body-color);
+    font-family: var(--font-secondary);
+}
+
+.requests{
+    padding: 5rem;
+}
+
+.table{
+    margin-top: 2rem;
+    background-color: var(--background-contrast-color);
+    padding: 2rem;
+    border-radius: var(--radius);
+}
+
+.header-container,
+.body-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.header{
+    color: #3f3c3c;
+    font-size: var(--text-big);
+    justify-self: start;
+    padding: 1rem 0rem;
+}
+
+.body-container{
+    background-color: var(--body-color);
+}
+
+.animal-details{
+    display: flex;
+    align-items: center;
+}
+
+.image{
+    background-color: #3f3c3c;
+    margin: 1rem;
+    width: 100px;
+    height: 150px;
+    border-radius: var(--radius);
+}
+
+.name{
+    font-weight: var(--font-semi-bold);
+    font-size: var(--text-big);
+}
+
+.action{
+    display: flex;
+    gap: 1rem;
+}
+
+.status{
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius);
+    color: var(--primary-color);
+    background-color: #ffeddd;
+    width: fit-content;
+}
+
+.action{
+    font-size: var(--text-big);
+    gap: 4rem;
+}
+
+.accept{
+    color: #127812;
+}
