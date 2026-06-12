@@ -13,18 +13,22 @@
             <div class="container">
                 <div class="client-container">
                     <div class="client-top">
-                        <p class="name">Name of the guy</p>
-                            <img src="{% static 'center/edit.svg' %}" alt="edit" class="icon edit">
-                        <a href="" class="logout">Logout</a>
+                        <p class="name">{{ user.username }}</p>
+                            <img src="{% static 'center/edit.svg' %}" alt="edit" class="icon edit" id="edit">
+                            <img src="{% static 'center/save.svg' %}" alt="save" class="icon save" id="save">
+                            <img src="{% static 'center/close.svg' %}" alt="cancel" class="icon close" id="close">
+                        <a href="{% url 'logout' %}" class="logout">Logout</a>
                     </div>
                     <div class="information">
                         <div class="email client-info">
                             <img src="{% static 'center/email.svg' %}" alt="email" class="icon email">
-                            <p class="email">email@example.com</p>
+                            <p class="email info" id="">{{ user.email }}</p>
+                            <input type="text" class="input" id="input-email" value="{{ user.email }}">
                         </div>
                         <div class="phone client-info">
                             <img src="{% static 'center/phone.svg' %}" alt="phone" class="icon phone">
-                            <p class="phone">123-456-7890</p>
+                            <p class="phone info" id="">{{ user.phone_number}}</p>
+                            <input type="text" class="input" id="input-phone" value="{{ user.phone_number }}">
                         </div>
                     </div>
                 </div>
@@ -50,4 +54,5 @@
         {% endblock %}
 
     {% block extra_js %}
+            <script src="{% static 'center/scripts/editProfile.js' %}"></script>
     {% endblock %}

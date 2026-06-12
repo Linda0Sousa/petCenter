@@ -28,6 +28,7 @@ body{
     margin-left: 2rem;
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 .logout{
@@ -48,6 +49,25 @@ body{
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+.close, .save{
+    display: none;
+    width: 25px;
+    height: 25px;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+.input{
+    display: none;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.input:focus{
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .adoption-history{

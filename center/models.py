@@ -3,27 +3,45 @@ from django.db import models
 from django.core.exceptions import ValidationError
 import phonenumbers
 from phonenumbers import format_number, PhoneNumberFormat
+from django.core.validators import validate_email
 
 class User(AbstractUser):
     phone_number = models.CharField(max_length=20, unique=True)
-    email = models.EmailField(unique=True)
+    #email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=False)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["email"], name="unique_email")
+        ]
+
     def clean(self):
-        #for simplicity,  I only verify if the number has a code country and if it has 9 numbers
         super().clean()
 
-        if not self.phone_number:
-            return
+        if not self.email:
+            raise ValidationError({"email": "Email é obrigatório"})
+
         try:
-            number = phonenumbers.parse(self.phone_number, "PT")
-        except phonenumbers.NumberParseException:
-            raise ValidationError({"phone_number": "Número inválido"})
+            validate_email(self.email)
+        except ValidationError:
+            raise ValidationError({"email": "Email inválido"})
 
-        if not phonenumbers.is_valid_number(number):
-            raise ValidationError({"phone_number": "Número inválido"})
+        if self.phone_number:
+            try:
+                number = phonenumbers.parse(self.phone_number, "PT")
+            except phonenumbers.NumberParseException:
+                raise ValidationError({"phone_number": "Número inválido"})
 
-        self.phone_number = format_number(number, PhoneNumberFormat.E164)
+            if not phonenumbers.is_valid_number(number):
+                raise ValidationError({"phone_number": "Número inválido"})
+
+        def save(self, *args, **kwargs):
+            if self.phone_number:
+                number = phonenumbers.parse(self.phone_number, "PT")
+                self.phone_number = format_number(number, PhoneNumberFormat.E164)
+
+            self.full_clean()
+            super().save(*args, **kwargs)
 
 class EmailVerification(models.Model):
     email = models.EmailField()

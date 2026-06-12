@@ -1,15 +1,18 @@
 from email.mime import image
+from urllib import request
 
 from django.shortcuts import render
 from .forms import *
 from .models import *
 from .services import *
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import login_required
+import json
 
 #django does not has a decorator for inactive users ._.
 from django.utils import timezone
@@ -168,12 +171,45 @@ def see_pet(request, pet_id):
 def dashboard(request):
     return render(request, "center/dashboard.html")
 
-#profile for clients
+#profile for clients/it needs also to check if its a client. it might be more secure to make a diferent view for that than using the same one.
+@login_required
 def profile(request):
-    return render(request, "center/profile.html")
+    if request.method == "POST":
+
+        data = json.loads(request.body)
+
+        email = data.get("email")
+        phone = data.get("phone")
+
+        request.user.email = email
+        request.user.phone_number = phone
+
+        try:
+            request.user.full_clean() 
+            request.user.save()
+            
+            return JsonResponse({
+                "success": True,
+                "email": email,
+                "phone": phone
+            })
+        
+        except ValidationError as e:
+            return JsonResponse({
+                "success": False,
+                "errors": e.message_dict
+            }, status=400)
+
+    return render(request, "center/profile.html", {"user": request.user})
 
 #list of requests for the shelter
 def requests(request):
     return render(request, "center/requests.html")
 
 
+#logout
+@login_required
+def logout(request):
+    from django.contrib.auth import logout as auth_logout
+    auth_logout(request)
+    return redirect("index")
