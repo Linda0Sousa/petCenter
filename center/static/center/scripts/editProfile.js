@@ -4,50 +4,47 @@ const info = document.querySelectorAll('.info');
 const save = document.getElementById('save');
 const cancel = document.getElementById('close');
 
+const toggleInputs = function(editing) {
+
+    inputs.forEach(input => {
+        input.style.display = editing ? 'block' : 'none';
+    });
+
+    info.forEach(paragraph => {
+        paragraph.style.display = editing ? 'none' : 'block';
+    });
+
+    edit.style.display = editing ? 'none' : 'block';
+    save.style.display = editing ? 'block' : 'none';
+    cancel.style.display = editing ? 'block' : 'none';
+}
+
+
 edit.addEventListener('click', function() {
     console.log('Edit button clicked');
 
     //hiding and showing the inputs and the info
-    inputs.forEach(function(input) {
-        input.style.display = 'block';
-    });
+    toggleInputs(true);
 
-    info.forEach(function(paragraph) {
-        paragraph.style.display = 'none';
-    });
+});
 
-    //hiding the edit button and showing the save button
-    edit.style.display = 'none';
-    save.style.display = 'block';
-    cancel.style.display = 'block';
+//canceling the edit mode
+cancel.addEventListener('click', function() {
+    console.log('Cancel button clicked');
 
-    //canceling the edit mode
-    cancel.addEventListener('click', function() {
-        console.log('Cancel button clicked');
-
-        //hiding the inputs and showing the info
-        inputs.forEach(function(input) {
-            input.style.display = 'none';
-        });
-
-        info.forEach(function(paragraph) {
-            paragraph.style.display = 'block';
-        });
-
-        //hiding the save and cancel buttons and showing the edit button
-        save.style.display = 'none';
-        cancel.style.display = 'none';
-        edit.style.display = 'block';
-    });
+    toggleInputs(false);
+});
 
 
-    //saving the changes
-    save.addEventListener('click', function() {
+//saving the changes
+save.addEventListener('click', function() {
 
     const email = document.getElementById("input-email").value;
     const phone = document.getElementById("input-phone").value;
 
     const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)?.[1];
+
+    save.disabled = true;
 
     fetch("/profile/", {
         method: "POST",
@@ -68,10 +65,18 @@ edit.addEventListener('click', function() {
 
         console.log("Sucesso:", data);
 
+        toggleInputs(false);
+        //change the info displayed with the new values
+        document.getElementById("email-info").textContent = email;
+        document.getElementById("phone-info").textContent = phone;
+
     })
     .catch(error => {
         console.error("Erro de rede:", error);
+    })
+    .finally(() => {
+        save.disabled = false;
     });
-});
+        
 
 });

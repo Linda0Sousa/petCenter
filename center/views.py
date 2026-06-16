@@ -190,14 +190,13 @@ def profile(request):
             
             return JsonResponse({
                 "success": True,
-                "email": email,
-                "phone": phone
+                "message": "Profile updated successfully."
             })
         
         except ValidationError as e:
             return JsonResponse({
                 "success": False,
-                "errors": e.message_dict
+                "email": ["Invalid email address"]
             }, status=400)
 
     return render(request, "center/profile.html", {"user": request.user})
