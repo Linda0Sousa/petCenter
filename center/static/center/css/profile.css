@@ -51,6 +51,24 @@ body{
     gap: 1rem;
 }
 
+.error-div{
+    position: relative;
+    background-color: black;
+    width: 100%;
+}
+
+.error{
+    color: var(--error-color);
+    font-size: var(--text-small);
+    background-color: var(--danger-color);
+    padding: 0.5rem 0.75rem;
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    display: none;
+    margin-top: 0.3rem;
+}
+
 .close, .save{
     display: none;
     width: 25px;

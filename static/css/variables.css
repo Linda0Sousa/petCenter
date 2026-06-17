@@ -4,7 +4,11 @@
     --secondary-color: #000000;
     --background-contrast-color: white;
     --soft-color: #a8a8a8;
-    --danger-color: #E74C3C;
+
+    /*red*/
+    --danger-color: #ffe6e6;
+    --error-color: #7a1919;
+
 
     --font-main:  "Comic Neue", cursive;
     --font-secondary: "Inter", sans-serif;

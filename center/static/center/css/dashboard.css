@@ -54,8 +54,8 @@ body{
 }
 
 .unavailable{
-    background-color: #ffe6e6;
-    color: #7a1919;
+    background-color: var(--danger-color);
+    color: var(--error-color);
 }
 
 .adopted{
@@ -115,7 +115,7 @@ body{
 }
 
 .canceled-requests{
-    color: #521625;
+    color: var(--error-color);
 }
 
 .active-users{
@@ -127,5 +127,5 @@ body{
 }
 
 .blocked-people{
-    color: #7a1919;
+    color: var(--error-color);
 }

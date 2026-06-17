@@ -18,22 +18,27 @@ class User(AbstractUser):
     def clean(self):
         super().clean()
 
+        errors = {}
+
         if not self.email:
-            raise ValidationError({"email": "Email é obrigatório"})
+            errors["email"] = "Email é obrigatório"
 
         try:
             validate_email(self.email)
         except ValidationError:
-            raise ValidationError({"email": "Email inválido"})
+            errors["email"] = "Email invalido"
 
         if self.phone_number:
             try:
                 number = phonenumbers.parse(self.phone_number, "PT")
             except phonenumbers.NumberParseException:
-                raise ValidationError({"phone_number": "Número inválido"})
+                errors["phone_number"] = "Número inválido"
 
             if not phonenumbers.is_valid_number(number):
-                raise ValidationError({"phone_number": "Número inválido"})
+                errors["phone_number"] = "Número inválido"
+
+        if errors:
+            raise ValidationError(errors)
 
         def save(self, *args, **kwargs):
             if self.phone_number:

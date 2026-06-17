@@ -19,16 +19,23 @@
                             <img src="{% static 'center/close.svg' %}" alt="cancel" class="icon close" id="close">
                         <a href="{% url 'logout' %}" class="logout">Logout</a>
                     </div>
+
                     <div class="information">
                         <div class="email client-info">
                             <img src="{% static 'center/email.svg' %}" alt="email" class="icon email">
-                            <p class="email info" id="">{{ user.email }}</p>
-                            <input type="text" class="input" id="input-email" value="{{ user.email }}">
+                            <p class="email info" id="email-info">{{ user.email }}</p>
+                            <div class="error-div">
+                                <input type="text" class="input" id="input-email" value="{{ user.email }}">
+                                <p class="error" id="email-error">No errors</p>
+                            </div>
                         </div>
                         <div class="phone client-info">
                             <img src="{% static 'center/phone.svg' %}" alt="phone" class="icon phone">
-                            <p class="phone info" id="">{{ user.phone_number}}</p>
-                            <input type="text" class="input" id="input-phone" value="{{ user.phone_number }}">
+                            <p class="phone info" id="phone-info">{{ user.phone_number}}</p>
+                            <div class="error-div">
+                                <input type="text" class="input" id="input-phone" value="{{ user.phone_number }}">
+                                <p class="error" id="phone-error">I see nothing</p>
+                            </div>
                         </div>
                     </div>
                 </div>

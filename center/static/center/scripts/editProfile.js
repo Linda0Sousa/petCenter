@@ -3,6 +3,7 @@ const inputs = document.querySelectorAll('.input');
 const info = document.querySelectorAll('.info');
 const save = document.getElementById('save');
 const cancel = document.getElementById('close');
+const errors = document.querySelectorAll(".error");
 
 const toggleInputs = function(editing) {
 
@@ -21,7 +22,6 @@ const toggleInputs = function(editing) {
 
 
 edit.addEventListener('click', function() {
-    console.log('Edit button clicked');
 
     //hiding and showing the inputs and the info
     toggleInputs(true);
@@ -30,7 +30,9 @@ edit.addEventListener('click', function() {
 
 //canceling the edit mode
 cancel.addEventListener('click', function() {
-    console.log('Cancel button clicked');
+    errors.forEach(element => {
+        element.style.display = 'none';
+    });
 
     toggleInputs(false);
 });
@@ -59,13 +61,30 @@ save.addEventListener('click', function() {
         const data = await response.json();
 
         if (!response.ok) {
-            console.log("Erro:", data.errors);
+            
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("phone-error").textContent = "";
+
+             if (data.errors.email) {
+                document.getElementById("email-error").textContent = data.errors.email[0];
+                document.getElementById("email-error").style.display = "block"
+
+            }
+
+            if (data.errors.phone_number) {
+                document.getElementById("phone-error").textContent = data.errors.phone_number[0];
+                document.getElementById("phone-error").style.display = "block"
+            }
+
             return;
         }
-
+        
         console.log("Sucesso:", data);
 
         toggleInputs(false);
+        errors.forEach(element => {
+            element.style.display = 'none';
+        });
         //change the info displayed with the new values
         document.getElementById("email-info").textContent = email;
         document.getElementById("phone-info").textContent = phone;

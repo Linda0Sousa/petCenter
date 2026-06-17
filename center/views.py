@@ -196,7 +196,7 @@ def profile(request):
         except ValidationError as e:
             return JsonResponse({
                 "success": False,
-                "email": ["Invalid email address"]
+                "errors": e.message_dict
             }, status=400)
 
     return render(request, "center/profile.html", {"user": request.user})
