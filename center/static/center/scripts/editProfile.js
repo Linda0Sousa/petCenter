@@ -45,6 +45,7 @@ save.addEventListener('click', function() {
     const phone = document.getElementById("input-phone").value;
 
     if (newEmail!== currentEmail) {
+        
         modal.style.display = "block";
         filter.style.display = "block";
     }
