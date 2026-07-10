@@ -37,12 +37,17 @@ cancel.addEventListener('click', function() {
     toggleInputs(false);
 });
 
-
 //saving the changes
 save.addEventListener('click', function() {
 
+    const currentEmail = document.getElementById("email-info").textContent.trim();
     const email = document.getElementById("input-email").value;
     const phone = document.getElementById("input-phone").value;
+
+    if (newEmail!== currentEmail) {
+        modal.style.display = "block";
+        filter.style.display = "block";
+    }
 
     const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)?.[1];
 
@@ -85,6 +90,11 @@ save.addEventListener('click', function() {
         errors.forEach(element => {
             element.style.display = 'none';
         });
+
+        //hide the modal and the filter
+        modal.style.display = "none";
+        filter.style.display = "none";
+
         //change the info displayed with the new values
         document.getElementById("email-info").textContent = email;
         document.getElementById("phone-info").textContent = phone;

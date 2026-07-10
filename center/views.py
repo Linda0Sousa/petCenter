@@ -172,11 +172,15 @@ def dashboard(request):
     return render(request, "center/dashboard.html")
 
 #profile for clients/it needs also to check if its a client. it might be more secure to make a diferent view for that than using the same one.
+#it also needs to send code for email
 @login_required
 def profile(request):
+
     if request.method == "POST":
 
         data = json.loads(request.body)
+
+        current_email = request.user.email
 
         email = data.get("email")
         phone = data.get("phone")
@@ -185,14 +189,29 @@ def profile(request):
         request.user.phone_number = phone
 
         try:
-            request.user.full_clean() 
-            request.user.save()
-            
-            return JsonResponse({
-                "success": True,
-                "message": "Profile updated successfully."
-            })
-        
+            request.user.full_clean()
+
+            #quickly saves if email is the same
+            if current_email == email:
+                request.user.save()
+                return JsonResponse({
+                    "success": True,
+                    "message": "Profile updated successfully."
+                })
+
+            else:
+                
+                #if email change sends code
+                send_verification_email(email)
+
+                #code verification
+                result, message = verify_code(request, email)
+
+                return JsonResponse({
+                    "success": result,
+                    "message": message,
+                }) 
+         
         except ValidationError as e:
             return JsonResponse({
                 "success": False,

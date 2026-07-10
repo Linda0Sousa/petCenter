@@ -10,6 +10,13 @@
         {% endblock %}
 
         {% block content %}
+        <div class="filter"></div>
+        <div class="modal">
+            <img src="{% static 'center/close.svg' %}" alt="close" class="close-modal" id="close-modal">
+            <p class="code">Enter verification code</p>
+            <input type="text" class="input-code">
+            <button class="button" type="button">Save</button>
+        </div>
             <div class="container">
                 <div class="client-container">
                     <div class="client-top">
@@ -23,7 +30,7 @@
                     <div class="information">
                         <div class="email client-info">
                             <img src="{% static 'center/email.svg' %}" alt="email" class="icon email">
-                            <p class="email info" id="email-info">{{ user.email }}</p>
+                            <p class="email info" id="email-info" value="{{ user.email }}">{{ user.email }}</p>
                             <div class="error-div">
                                 <input type="text" class="input" id="input-email" value="{{ user.email }}">
                                 <p class="error" id="email-error">No errors</p>

@@ -157,3 +157,57 @@ body{
 .extra-info{
     margin-top: 2rem;
 }
+
+/*modal*/
+.filter{
+    backdrop-filter: blur(5px);
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.modal{
+    background-color: var(--background-contrast-color);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: var(--radius);
+    text-align: center; 
+    z-index: 2;
+    box-shadow: var(--shadow-soft);
+    display: none;
+}
+
+.code{
+    font-size: var(--text-large);
+    font-weight: var(--font-bold);
+    margin-bottom: 1rem;
+}
+
+.input-code{
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.input-code:focus{
+    outline: none;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.button{
+    padding: 0.5rem 1rem;
+    margin-top: 2rem;
+    font-weight: var(--font-bold);
+}
+
+.close-modal{
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
